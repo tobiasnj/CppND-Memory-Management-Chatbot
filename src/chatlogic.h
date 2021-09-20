@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 #include "chatgui.h"
 
 // forward declarations
@@ -15,10 +16,11 @@ class ChatLogic
 private:
     //// STUDENT CODE
     ////
+    ChatLogic(const ChatLogic& other);     // copy constructor
+    ChatLogic& operator=(const ChatLogic& other);   // copy assignment
 
     // data handles (owned)
-    std::vector<GraphNode *> _nodes;
-    std::vector<GraphEdge *> _edges;
+    std::vector<std::unique_ptr<GraphNode>> _nodes;
 
     ////
     //// EOF STUDENT CODE
